@@ -25,6 +25,8 @@
 
 ;;; Code:
 
+(require 'config-lisp)
+
 (use-package company
   :ensure t
   :defines (company-dabbrev-ignore-case company-dabbrev-downcase)
@@ -42,8 +44,15 @@
 								   text-mode))
   (define-key company-mode-map [remap indent-for-tab-command] 'company-indent-or-complete-common))
 
+(use-package slime-company
+  :ensure t
+  :after (slime company)
+  :config (setq slime-company-completion 'fuzzy
+                slime-company-after-completion 'slime-company-just-one-space))
+
 (use-package company-irony
   :ensure t
+  :after company
   :config (add-to-list 'company-backends #'company-irony))
 
 (use-package company-box
