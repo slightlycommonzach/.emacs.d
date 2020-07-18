@@ -52,8 +52,8 @@
   :init (use-package s :ensure t)
   (use-package dash :ensure t)
   :config
-  (add-hook 'prog-mode-hook 'origami-mode)
-  (global-set-key (kbd "<backtab>") #'origami-toggle-node))
+  (add-hook 'prog-mode-hook (lambda () (origami-mode)))
+  (define-key origami-mode-map [backtab] 'origami-toggle-node))
 
 (provide 'config-writing)
 ;;; config-writing.el ends here
