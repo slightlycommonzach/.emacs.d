@@ -25,8 +25,46 @@
 
 ;;; Code:
 
-(require 'config-company)
 (eval-when-compile '(require 'cl))
+
+(use-package slime ;; Install SBCL (Steel Bank Common Lisp)
+  :ensure t
+  :preface
+  (defun delete-quicklisp-installer ()
+	(when (file-exists-p (expand-file-name (concat user-emacs-directory "lisp/quicklisp.lisp")))
+	  (delete-file (expand-file-name (concat user-emacs-directory "lisp/quicklisp.lisp")))
+	  (message "Deleted Installation File")))
+  
+  (defun install-quicklisp ()
+	(if (not (file-directory-p (expand-file-name (concat user-emacs-directory "quicklisp/"))))
+		(progn (message "quicklisp thang")
+			   (shell-command
+				(concat "sbcl --no-sysinit --no-userinit --noprint --load "
+						(expand-file-name (concat user-emacs-directory "lisp/quicklisp.lisp "))
+						"--eval '(quicklisp-quickstart:install :path \""
+						(expand-file-name (concat user-emacs-directory "quicklisp/"))
+						"\")' --eval '(ql:add-to-init-file)' --quit"))
+			   (delete-quicklisp-installer))))
+  
+  (defun install-slime-helper ()
+	(when (and (file-directory-p (concat user-emacs-directory "quicklisp/"))
+			   (not (file-exists-p (concat user-emacs-directory "quicklisp/slime-helper.el"))))
+	  (shell-command "sbcl --eval '(ql:quickload :quicklisp-slime-helper)' --quit")))
+  
+  (defun prep-slime ()
+	(install-quicklisp)
+	(install-slime-helper)
+	(load (expand-file-name (concat user-emacs-directory "quicklisp/slime-helper.el")))
+	(when (not (eq major-mode 'lisp-mode))
+	  (slime)
+	  (lisp-mode)
+	  ))
+  :config
+  (setq inferior-lisp-program (executable-find "sbcl"))
+  (add-to-list 'slime-contribs '(slime-repl slime-autodoc slime-references))
+  ;; For Help w/ Slime REPL: https://common-lisp.net/project/slime/doc/html/REPL.html
+  (slime-setup '(slime-fancy slime-references slime-autodoc slime-repl slime-company))
+  (add-to-list 'auto-mode-alist '("\\.lisp$" . prep-slime)))
 
 (use-package clojure-mode ;; I partake in setting my JAVA_HOME variable to jdk8_openjdk's location
   :ensure t
