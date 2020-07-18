@@ -35,6 +35,8 @@ At the moment, I still cannot find a way to have it restart upon variable declar
 
 * `dir-for-normals' (defaults to `"normal-standards/"') - Set to replace the name `normal-standards/' for whatever purpose you may be interested in
 
+* `animation-latency' (defaults to `.4') - Set to change the amount of time it takes to change the image during the animation.
+
 The configuration, add as many images as you please, but follow the naming conventions:
 
 ```
@@ -75,6 +77,10 @@ In order to access the animation feature, you can either run
 ```M-x  start-blink-timer``` to start its blink every x time units, defined with `stand-up-timer` (defaults to `"30 min"`), can be enabled on startup of Planetary with `animated-timer` (defaults to `nil`).
 
 ```M-x stop-blink```. A must function. If it is blinking, you use this to restart the timer if `animated-timer` is enabled, or under any other circumstance, disabling `M-x start-blink`.
+
+**New!:** You can now take advantage of `planetary-mode-map`.
+
+I've set mine up to restart the timer with a pre-set `stop-blink` keymap to "C-p s".
 
 You can also click the planets to move to the lowest part of a given position, being the first part of the 9th that the buffer is divided into by default with the planets if you choose not to modify them yourself.
 
