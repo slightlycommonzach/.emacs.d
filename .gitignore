@@ -5,3 +5,6 @@ irony/
 /bookmarks
 /recentf
 /projectile-bookmarks.eld
+/.projectile
+/lisp/prefs/persp-confs/
+/snippets/
