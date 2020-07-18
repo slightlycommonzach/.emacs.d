@@ -1,4 +1,4 @@
-;;; config-workspaces.el --- config-workspaces.el -*- lexical-binding: t -*-
+;;; config-persp.el --- config-persp.el starts here -*- lexical-binding: t -*-
 
 ;; Author: Zachary Chamberlain
 ;; Maintainer: Zachary Chamberlain
@@ -42,4 +42,4 @@
   :config (golden-ratio-mode 1))
 
 (provide 'config-persp)
-;;; config-workspaces.el ends here
+;;; config-persp.el ends here

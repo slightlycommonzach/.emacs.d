@@ -1,4 +1,4 @@
-;;; config-dashboard.el --- config-dashboard.el -*- lexical-binding: t -*-
+;;; config-dashboard.el --- config-dashboard.el starts here -*- lexical-binding: t -*-
 
 ;; Author: Zachary Chamberlain
 ;; Maintainer: Zachary Chamberlain

@@ -1,4 +1,4 @@
-;;; config-projectile.el --- config-projectile.el -*- lexical-binding: t -*-
+;;; config-projectile.el --- config-projectile.el starts here -*- lexical-binding: t -*-
 
 ;; Author: Zachary Chamberlain
 ;; Maintainer: Zachary Chamberlain

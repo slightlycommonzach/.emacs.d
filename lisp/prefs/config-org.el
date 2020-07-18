@@ -1,4 +1,4 @@
-;;; config-org.el --- config-org.el -*- lexical-binding: t -*-
+;;; config-org.el --- config-org.el starts here -*- lexical-binding: t -*-
 
 ;; Author: Zachary Chamberlain
 ;; Maintainer: Zachary Chamberlain

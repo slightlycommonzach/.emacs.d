@@ -1,4 +1,4 @@
-;;; config-yasnippet.el --- config-yasnippet.el -*- lexical-binding: t -*-
+;;; config-yasnippet.el --- config-yasnippet.el starts here -*- lexical-binding: t -*-
 
 ;; Author: Zachary Chamberlain
 ;; Maintainer: Zachary Chamberlain
