@@ -44,7 +44,7 @@
 
 (use-package company-irony
   :ensure t
-  :config (add-to-list 'company-backends 'company-irony))
+  :config (add-to-list 'company-backends #'company-irony))
 
 (use-package company-box
   :ensure t
