@@ -30,6 +30,8 @@
 (setq animated-timer t)
 (planetary-mode 1)
 
+(define-key planetary-mode-map (kbd "C-p s") #'stop-blink)
+
 (use-package minions
   :ensure t
   :config (minions-mode 1)
