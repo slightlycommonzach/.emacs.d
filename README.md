@@ -26,7 +26,7 @@ In [Screenshots](#screenshots) you can see examples of its appearance in Emacs.
 
 **Flyspell**
 
-Another common error that you might come across when trying to take advantage of Flyspell is an error in "en_US".
+A common error that you might come across when trying to take advantage of Flyspell is an error in "en_US".
 
 To fix this, install `aspell-en` on your desktop.
 
