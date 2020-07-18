@@ -22,6 +22,11 @@
 
 (defconst planetarium-root (file-name-directory load-file-name))
 
+(defvar planetary-mode-map
+  (let ((map (make-sparse-keymap)))
+	(make-sparse-keymap)
+	map))
+
 (defgroup planetary nil
   "Customization group for Planetary."
   :tag "Planetarium!"
@@ -183,7 +188,8 @@
 		(cancel-timer stand-up-reminder-timer)
 		(setq stand-up-reminder-timer nil
 			  proper-axis nil
-			  is-animating-p nil)
+			  is-animating-p nil
+			  count-it 0)
 		(force-mode-line-update)
 		(if is-timing-p
 			(setq stand-up-reminder-timer (run-at-time stand-up-timer animation-latency (function (lambda () (start-blink)))))))
