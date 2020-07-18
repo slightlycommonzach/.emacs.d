@@ -184,7 +184,7 @@ Otherwise, just insert the typed character."
 ;; ~/.emacs.d/lisp/langs/
 (require 'config-c)
 (require 'config-python)
-(require 'config-clojure)
+(require 'config-lisp)
 (require 'config-dotnet)
 
 ;; Garbage collector - decrease threshold to 5 MB

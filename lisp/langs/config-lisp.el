@@ -1,4 +1,4 @@
-;;; config-clojure.el --- config-clojure.el starts here -*- lexical-binding: t -*-
+;;; config-lisp.el --- config-lisp.el starts here -*- lexical-binding: t -*-
 
 ;; Author: Zachary Chamberlain
 ;; Maintainer: Zachary Chamberlain
@@ -25,25 +25,28 @@
 
 ;;; Code:
 
-()
+(require 'config-company)
+(eval-when-compile '(require 'cl))
 
 (use-package clojure-mode ;; I partake in setting my JAVA_HOME variable to jdk8_openjdk's location
   :ensure t
   :config
   (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
-  (add-hook 'clojure-mode-hook (lambda () (setq-local comment-column 0))))
+  (add-hook 'clojure-mode-hook (function (lambda () (setq-local comment-column 0)))))
 
-(use-package cider
+(use-package clojure-mode-extra-font-locking :ensure t)
+
+(use-package cider ;; Install Leiningen
   :ensure t
   :bind (:map cider-mode-map
 			  ("C-c C-x c r" . cider-jack-in))
   :config
   (setq cider-prompt-for-symbol nil
 		cider-jump-to-pop-to-buffer-actions '((display-buffer-same-window))
-		cider-eval-result-prefix ";;|==> "
+		cider-eval-result-prefix ";;=<|==> "
 		cider-allow-jack-in-without-project t
 		nrepl-hide-special-buffers t
 		nrepl-log-messages t))
 
-(provide 'config-clojure)
-;;; config-clojure.el ends here
+(provide 'config-lisp)
+;;; config-lisp.el ends here
