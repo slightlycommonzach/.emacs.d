@@ -51,6 +51,9 @@
 
 (global-unset-key [(meta shift f)])
 
+(add-to-list 'auto-mode-alist '("\\.lisp$" . lisp-mode))
+(add-hook 'lisp-mode-hook 'prog-mode)
+
 ;; Line Numbers
 (defun linum-format-func (line)
   "Display LINE number on the side left to the left-fringe."
@@ -158,6 +161,7 @@ Otherwise, just insert the typed character."
       scroll-margin 		0
       scroll-conservatively 100000)
 
+
 ;; Loading external files
 (add-to-list 'load-path (concat user-emacs-directory "lisp/"))
 (add-to-list 'load-path (concat user-emacs-directory "lisp/langs/"))
@@ -177,6 +181,7 @@ Otherwise, just insert the typed character."
 (require 'config-dashboard)
 (require 'config-treemacs)
 (require 'config-yasnippet)
+(require 'config-writing)
 (require 'pragmatapro-lig)
 (pragmatapro-lig-global-mode)
 (global-prettify-symbols-mode +1)
