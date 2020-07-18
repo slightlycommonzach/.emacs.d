@@ -8,3 +8,5 @@ irony/
 /.projectile
 lisp/prefs/persp-confs/
 /snippets/
+quicklisp/
+projectile.cache
