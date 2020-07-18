@@ -29,7 +29,7 @@
   :commands flycheck-refresh-fringes-and-margins
   :preface (defun fringe-indications ()
 			 "."
-			 (setq-default right-fringe-width 8 right-margin-width 8
+			 (setq-default right-fringe-width 0 right-margin-width 3
 						   flycheck-indication-mode 'right-margin)
 			 (flycheck-refresh-fringes-and-margins))
   :ensure t
