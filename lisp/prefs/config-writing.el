@@ -1,4 +1,4 @@
-;;; config-writing.el --- config-writing.el -*- lexical-binding: t -*-
+;;; config-writing.el --- config-writing.el starts here -*- lexical-binding: t -*-
 
 ;; Author: Zachary Chamberlain
 ;; Maintainer: Zachary Chamberlain
@@ -52,7 +52,8 @@
   :init (use-package s :ensure t)
   (use-package dash :ensure t)
   :config
-  (add-hook 'prog-mode-hook 'origami-mode))
+  (add-hook 'prog-mode-hook 'origami-mode)
+  (global-set-key (kbd "<backtab>") #'origami-toggle-node))
 
 (provide 'config-writing)
 ;;; config-writing.el ends here
