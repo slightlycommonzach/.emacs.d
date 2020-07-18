@@ -24,14 +24,6 @@ In [Screenshots](#screenshots) you can see examples of its appearance in Emacs.
 
 ## Installation
 
-**.NET**
-
-This Emacs configuration is primarily plug and play, but there are some quirks that I could not find a way to incorporate to be installed from Lisp so these are 2 things you may wish to do:
-
-If you wish to take advantage of .NET support for the C# language, you'll have to run (below) and approve the installation size:
-
- `M-x omnisharp-install-server`
-
 **Flyspell**
 
 Another common error that you might come across when trying to take advantage of Flyspell is an error in "en_US".
