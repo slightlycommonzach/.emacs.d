@@ -48,6 +48,9 @@
         ("C-x t 1"   . treemacs-delete-other-windows)
         ("C-x t C-t" . treemacs-find-file)
         ("C-x t M-t" . treemacs-find-tag)))
+(use-package lsp-treemacs
+  :ensure t
+  :hook (java-mode . (lambda () (lsp-treemacs-sync-mode 1))))
 
 (use-package treemacs-projectile
   :after treemacs projectile
