@@ -37,8 +37,7 @@
   
   (defun install-quicklisp ()
 	(if (not (file-directory-p (expand-file-name (concat user-emacs-directory "quicklisp/"))))
-		(progn (message "quicklisp thang")
-			   (shell-command
+		(progn (shell-command
 				(concat "sbcl --no-sysinit --no-userinit --noprint --load "
 						(expand-file-name (concat user-emacs-directory "lisp/quicklisp.lisp "))
 						"--eval '(quicklisp-quickstart:install :path \""
@@ -57,8 +56,7 @@
 	(load (expand-file-name (concat user-emacs-directory "quicklisp/slime-helper.el")))
 	(when (not (eq major-mode 'lisp-mode))
 	  (slime)
-	  (lisp-mode)
-	  ))
+	  (lisp-mode)))
   :config
   (setq inferior-lisp-program (executable-find "sbcl"))
   (add-to-list 'slime-contribs '(slime-repl slime-autodoc slime-references))
@@ -82,6 +80,7 @@
   (setq cider-prompt-for-symbol nil
 		cider-jump-to-pop-to-buffer-actions '((display-buffer-same-window))
 		cider-eval-result-prefix ";;=<|==> "
+		cider-inject-dependencies-at-jack-in t
 		cider-allow-jack-in-without-project t
 		nrepl-hide-special-buffers t
 		nrepl-log-messages t))
