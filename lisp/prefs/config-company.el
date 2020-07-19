@@ -32,7 +32,7 @@
   :defines (company-dabbrev-ignore-case company-dabbrev-downcase)
   :commands company-indent-or-complete-common
   :hook (after-init	. global-company-mode)
-  :config
+  :config (require 'company-capf)
   (setq company-idle-delay 0.2
 		company-tooltip-limit 14
 		company-minimum-prefix-length 1
@@ -42,7 +42,8 @@
 								   shell-mode
 								   help-mode
 								   text-mode))
-  (define-key company-mode-map [remap indent-for-tab-command] 'company-indent-or-complete-common))
+  (define-key company-mode-map [remap indent-for-tab-command] 'company-indent-or-complete-common)
+  (add-to-list 'company-backends 'company-capf))
 
 (use-package slime-company
   :ensure t
