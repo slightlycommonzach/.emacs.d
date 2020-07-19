@@ -33,8 +33,9 @@
   :bind (:map c-mode-base-map
 			  ("C-c c" . compile)
 			  ("\C-m" . c-context-line-break))
-  :hook ((c-mode-common . (lambda () (c-set-style "stroustrup")))
-		 (c-mode-common . (lambda () (c-toggle-auto-newline 1))))
+  :hook ((c-mode-common . (lambda () (c-set-style "stroustrup")
+							(c-toggle-auto-newline 1)
+							(company-mode))))
   :config
   (setq-default c-basic-offset 4))
 
