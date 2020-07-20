@@ -10,3 +10,9 @@ lisp/prefs/persp-confs/
 /snippets/
 quicklisp/
 projectile.cache
+/.lsp-session-v1
+/.dap-breakpoints
+.cache/
+.sx/
+.elfeed/
+url/
