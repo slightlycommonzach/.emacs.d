@@ -29,18 +29,19 @@
   :ensure t
   :defer t
   :commands treemacs-git-mode treemacs-follow-mode treemacs-set-scope-type
-  :config
+  :config (require 'treemacs-tags)
   (define-key treemacs-mode-map [mouse-1] 'treemacs-doubleclick-action)
-  (progn
-	(setq treemacs-width 30)
-    (treemacs-follow-mode t)
-    (pcase (cons (not (null (executable-find "git")))
-                 (not (null (executable-find "python3"))))
-      (`(t . t)
-       (treemacs-git-mode 'deferred))
-      (`(t . _)
-       (treemacs-git-mode 'simple)))
-	(setq treemacs--width-is-locked t))
+  (define-key treemacs-mode-map (kbd "<left>") 'treemacs-toggle-node)
+  (define-key treemacs-mode-map (kbd "<right>") 'treemacs-toggle-node)
+  (setq treemacs-width 30)
+  (treemacs-follow-mode t)
+  (pcase (cons (not (null (executable-find "git")))
+			   (not (null (executable-find "python3"))))
+	(`(t . t)
+	 (treemacs-git-mode 'deferred))
+	(`(t . _)
+	 (treemacs-git-mode 'simple)))
+  (setq treemacs--width-is-locked t)
   :bind
   (:map global-map
         ("C-x t t"   . treemacs)
