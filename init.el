@@ -1,10 +1,30 @@
-;;; init.el --- Global settings -*- lexical-binding: t; -*-
+;;; init.el --- init.el starts here -*- lexical-binding: t -*-
+
+;; Author: Zachary Chamberlain
+;; Maintainer: Zachary Chamberlain
+
+;; This file is not part of GNU Emacs
+
+;; This file is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 3, or (at your option)
+;; any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; For a full copy of the GNU General Public License
+;; see <http://www.gnu.org/licenses/>.
+
 
 ;;; Commentary:
 
-;; Here be dragons
+;; Global Settings
 
 ;;; Code:
+
 ;; Increase the garbage collection threshold to 500 MB to ease startup
 (setq gc-cons-threshold (* 500 1024 1024))
 
@@ -61,11 +81,11 @@
 	(propertize (format (format "  %%%dd  " w) line) 'face 'linum)))
 (add-hook 'prog-mode-hook 'linum-mode)
 (setq-default linum-format #'linum-format-func)
-
 (use-package hlinum
   :ensure t
   :config (hlinum-activate)
   (global-hl-line-mode))
+
 (setq-default tab-width 4)
 
 ;; Removes all bold text
@@ -98,7 +118,6 @@
   :config
   (setq rainbow-x-colors nil)
   (add-hook 'prog-mode-hook 'rainbow-mode))
-
 ;(use-package solarized-theme
 ;  :ensure t
 ;  :config
@@ -161,7 +180,6 @@ Otherwise, just insert the typed character."
       scroll-margin 		0
       scroll-conservatively 100000)
 
-
 ;; Loading external files
 (add-to-list 'load-path (concat user-emacs-directory "lisp/"))
 (add-to-list 'load-path (concat user-emacs-directory "lisp/langs/"))
@@ -182,15 +200,18 @@ Otherwise, just insert the typed character."
 (require 'config-treemacs)
 (require 'config-yasnippet)
 (require 'config-writing)
+(require 'config-reading)
 (require 'pragmatapro-lig)
 (pragmatapro-lig-global-mode)
 (global-prettify-symbols-mode +1)
 
 ;; ~/.emacs.d/lisp/langs/
 (require 'config-c)
+(require 'config-java)
 (require 'config-python)
 (require 'config-lisp)
 (require 'config-dotnet)
+;(require 'config-web)
 
 ;; Garbage collector - decrease threshold to 5 MB
 (add-hook 'after-init-hook (lambda () (setq gc-cons-threshold (* 5 1024 1024))))
