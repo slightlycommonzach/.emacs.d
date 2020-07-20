@@ -37,5 +37,7 @@
   :config (minions-mode 1)
   (setq minions-direct '(flycheck-mode)))
 
+(display-time)
+
 (provide 'config-modeline)
 ;;; config-modeline.el ends here
