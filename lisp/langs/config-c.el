@@ -29,13 +29,16 @@
 
 (use-package cc-mode
   :ensure nil
+  :preface (defun c-mode-hook-setup ()
+			 (setq c-basic-offset 4
+				   c-default-style "stroustrup")
+			 (company-mode)
+			 (c-toggle-auto-newline 1))
   :commands c-toggle-auto-newline
   :bind (:map c-mode-base-map
 			  ("C-c c" . compile)
 			  ("\C-m" . c-context-line-break))
-  :hook ((c-mode-common . (lambda () (c-set-style "stroustrup")
-							(c-toggle-auto-newline 1)
-							(company-mode))))
+  :hook (c-mode-common . c-mode-hook-setup)
   :config
   (setq-default c-basic-offset 4))
 
@@ -52,10 +55,9 @@
 		 (c++-mode . irony-mode)
 		 (irony-mode . irony-cdb-autosetup-compile-options))
   :config (require 'irony)
-  (if (not (file-directory-p ;; Doesn't work if you've installed irony-server before, if you need to reinstall just remove (not) and restart. May fix later.
-			(concat (file-name-as-directory temporary-file-directory)
-					(file-name-as-directory (format "build-irony-server-%s"
-													(irony-version))))))
+  (if (and (not (file-directory-p (concat (file-name-as-directory temporary-file-directory)
+										  (file-name-as-directory (format "build-irony-server-%s" (irony-version))))))
+		   (not (file-directory-p (concat user-emacs-directory "irony/bin/"))))
 	  (irony-install-server (concat "cmake -DCMAKE_INSTALL_PREFIX\="
 									(expand-file-name user-emacs-directory)
 									"irony/ "
