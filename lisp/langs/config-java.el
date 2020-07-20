@@ -75,9 +75,6 @@
 		lsp-java-java-path (getenv "JAVA_HOME") ;; Set to the directory of ‎java-8-openjdk
 		lsp-file-watch-ignored '(".idea" ".git" "build")
 		lsp-java-format-on-type-enabled nil))
-;(require 'lsp-ui-flycheck)
-;(with-eval-after-load 'lsp-mode
-;  (add-hook 'lsp-after-open-hook (lambda () (lsp-ui-flycheck-enable 1))))
 
 (use-package lsp-ui
   :ensure t
