@@ -5,8 +5,11 @@
 - Plug & Play
 - Support for multiple programming languages (w/ auto-completion "company" support.)
    - C/C++/C#
-   - Clojure
+   - Clojure/SLIME (Common Lisp)
+   - Java
    - Python
+   - HTML/CSS/JavaScript
+   - JSON/YAML
 - [Flycheck](https://www.flycheck.org/) for Syntax.
 - Flyspell for Spelling
 - [Writeroom](https://github.com/joostkremers/writeroom-mode)/[good](https://github.com/bnbeckwith/writegood-mode) support.
@@ -18,11 +21,17 @@
 
 See [Installation](#installation) for Installation details.
 
-[PragmataPro](https://fsd.it/shop/fonts/pragmatapro/) is a paid font by Fabirizio Schiavi that I personally cannot recommend enough, well worth the price.
+[PragmataPro](https://fsd.it/shop/fonts/pragmatapro/) is a paid font by Fabrizio Schiavi that I personally cannot recommend enough, well worth the price.
 
 In [Screenshots](#screenshots) you can see examples of its appearance in Emacs.
 
 ## Installation
+
+### Prerequisites:
+- [SBCL](http://www.sbcl.org/getting.html) (for SLIME support)
+- [Leiningen](https://leiningen.org/) (optional) (for Clojure)
+- [OpenJDK](https://openjdk.java.net/) (for [LSP-Java](https://github.com/emacs-lsp/lsp-java) support)
+- [black](https://github.com/wbolster/emacs-python-black/tree/a11ca73f6dfcdc125d27ff184496d66bdbd71326) (optional) (for Python formatting support)
 
 **Flyspell**
 
@@ -32,15 +41,11 @@ To fix this, install `aspell-en` on your desktop.
 
 Among the `lang/` configuration files you can find that there are small notes here and there pertaining to my setup in these.
 
-Last but not least: If you have installed [irony](https://github.com/Sarcasm/irony-mode/)'s server in the past, remove `/tmp/build-irony-server-x.x.x` (or `Users/{user}/Temp/` for Windows)
 
 ## Roadmap
 
 I'm going to primarily continue to focus development on:
 
-- Web programming-related functionality
-- General programming language support (Java, Elixir, etc.)
-- Org related functionality
 - Design (Icons, Theming, etc.)
 
 ## Screenshots
