@@ -37,9 +37,5 @@
 		persp-autokill-buffer-on-remove 'kill-weak)
   (add-hook 'after-init-hook (lambda () (persp-mode 1))))
 
-(use-package golden-ratio
-  :ensure t
-  :config (golden-ratio-mode 1))
-
 (provide 'config-persp)
 ;;; config-persp.el ends here
