@@ -54,8 +54,7 @@
 			"https://www.github.com/slightlycommonzach/.emacs.d/"
 			(lambda () (browse-url "https://www.github.com/slightlycommonzach/.emacs.d/"))))))
   (setq dashboard-items '((recents . 5)
-						  (bookmarks . 5)
-						  (agenda . 5)))
+						  (bookmarks . 5)))
   (dashboard-setup-startup-hook))
 
 (provide 'config-dashboard)

@@ -38,7 +38,7 @@
 	  (make-directory (concat (expand-file-name "~/Documents/") "Org/")))))
 
 (setq org-directory (concat (expand-file-name "~/Documents/") "Org/")
-	  org-todo-keywords '((sequence "TODO(t)" "DOING(p)" "|" "FINISHED(f)" "CANCELLED(c)"))
+	  org-todo-keywords '((sequence "NEXT (n) TODO(t)" "WAITING(w)" "SOMEDAY(s)" "PROJ(p)" "|" "DONE(d)" "CANCELLED(c)"))
 	  org-support-shift-select t)
 (setq org-agenda-files (list (concat org-directory
 									 (elt (directory-files org-directory nil "\\.org$")
