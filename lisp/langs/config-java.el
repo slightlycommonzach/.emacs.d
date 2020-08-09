@@ -29,6 +29,7 @@
 
 (use-package lsp-mode
   :ensure t
+  :preface (use-package lsp-java :ensure t)
   :hook (java-mode . #'lsp)
   :config (require 'lsp-mode)
   (if (not (file-directory-p lsp-java-server-install-dir))
@@ -40,7 +41,8 @@
 												  #'lsp--client-download-server-fn))))))
 		(lsp--install-server-internal
 		 (cdr (assoc (or (elt (car collect)
-							  (cl-position "jdtls" (car collect) :test 'equal)) (user-error "There are no servers with automatic installation"))
+							  (cl-position "jdtls" (car collect) :test 'equal))
+						 (user-error "There are no servers with automatic installation"))
 					 collect))
 		 nil)))
   (setq lsp-diagnostic-package nil))
@@ -55,7 +57,7 @@
   (dap-ui-mode t))
 
 (use-package lsp-java
-  :ensure t
+  :ensure nil
   :after lsp-mode
   :hook (java-mode . company-mode)
   :commands lsp-java-vmargs
@@ -68,11 +70,11 @@
   (setq lsp-java-vmargs
 		(list
 		 "-noverify"
-         "-Xmx2G"
+		 "-Xmx2G"
 		 "-XX:+UseG1GC"
 		 "-XX:+UseStringDeduplication")
 		lsp-java-format-settings-profile "GoogleStyle"
-		lsp-java-java-path (getenv "JAVA_HOME") ;; Set to the directory of ‎java-8-openjdk
+		lsp-java-java-path (getenv "JAVA_HOME") ;; Set to the directory of ‎a java-8-openjdk installation
 		lsp-file-watch-ignored '(".idea" ".git" "build")
 		lsp-java-format-on-type-enabled nil))
 
