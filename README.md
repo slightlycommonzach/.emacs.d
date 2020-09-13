@@ -12,8 +12,8 @@
    - JSON/YAML
 - [Flycheck](https://www.flycheck.org/) for Syntax.
 - Flyspell for Spelling
-- [Writeroom](https://github.com/joostkremers/writeroom-mode)/[good](https://github.com/bnbeckwith/writegood-mode) support.
-- [Org Chef](https://github.com/Chobbes/org-chef/) support
+- [Writeroom](https://github.com/joostkremers/writeroom-mode)/[good](https://github.com/bnbeckwith/writegood-mode)
+- [Org Chef](https://github.com/Chobbes/org-chef/)
 - [which-key](https://github.com/justbur/emacs-which-key)
 - [Treemacs](https://github.com/Alexander-Miller/treemacs)
 
@@ -28,9 +28,9 @@ In [Screenshots](#screenshots) you can see examples of its appearance in Emacs.
 ## Installation
 
 ### Prerequisites:
-- [SBCL](http://www.sbcl.org/getting.html) (for SLIME support)
+- [SBCL](http://sbcl.sourceforge.net/platform-table.html) (for SLIME support)
 - [Leiningen](https://leiningen.org/) (optional) (for Clojure)
-- [OpenJDK](https://openjdk.java.net/) (for [LSP-Java](https://github.com/emacs-lsp/lsp-java) support)
+- [OpenJDK](https://adoptopenjdk.net/) (for [LSP-Java](https://github.com/emacs-lsp/lsp-java) support)
 - [black](https://github.com/wbolster/emacs-python-black/tree/a11ca73f6dfcdc125d27ff184496d66bdbd71326) (optional) (for Python formatting support)
 
 **Flyspell**
@@ -38,9 +38,6 @@ In [Screenshots](#screenshots) you can see examples of its appearance in Emacs.
 A common error that you might come across when trying to take advantage of Flyspell is an error in "en_US".
 
 To fix this, install `aspell-en` on your desktop.
-
-Among the `lang/` configuration files you can find that there are small notes here and there pertaining to my setup in these.
-
 
 ## Roadmap
 
